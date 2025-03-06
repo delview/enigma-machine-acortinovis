@@ -1,18 +1,18 @@
 #Atbash Cipher
-#ask the user whether they want to decrypt or encrypt a message
-#Accept a string that the program will either encrypt or decrypt.
-
 
 #Create two functions that will accept parameters in the form of a list or a dictionary that will contain the string meant to be encrypted or decrypted.
 #one function will encrypt
-
-
-#the other will decrypt using the Atbash cipher technique.
-
-
-# This should involve both loops and if statements.
-
-
+def encrypt(message:list):
+    encrypted=""
+    for char in message:
+        if char.isalpha():
+            if char.isupper():
+                encrypted+=chr(155 - ord(char))#for uppercase letters, 'A'+'Z'=155
+            elif char.islower():
+                encrypted+=chr(219 - ord(char))#for lowercas letters, 'a'+'z'=219
+        else:
+            encrypted+=char
+    return encrypted
 
 #Either call a function to encrypt or to decrypt the string.
 
