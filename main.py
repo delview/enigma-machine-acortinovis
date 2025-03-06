@@ -27,7 +27,14 @@ def decrypt(message:list):
 # This should involve both loops and if statements.
 
 
-
+#ask the user whether they want to decrypt or encrypt a message
+#Accept a string that the program will either encrypt or decrypt.
+question=(input'would you like to decrypt or encrypt the message? ')
+if question=='encrypt':
+    message= (input'enter the message you want to encrypt: ').strip()
+    message_list=[]
+    message_list.append(message)
+    print(encrypt(message_list))
 #Either call a function to encrypt or to decrypt the string.
 
 
