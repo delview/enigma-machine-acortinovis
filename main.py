@@ -25,17 +25,26 @@ def decrypt(message:list):
                 encrypted+=chr(219 - ord(char))#for lowercas letters, 'a'+'z'=219
 
 # This should involve both loops and if statements.
+def add_encrypted(list:list):
+    message= (input('enter the message you want to encrypt: ')).strip()
+    list.append(message)
+    return list
 
-
+def add_decrypted(list:list):
+    message= (input('enter the message you want to decrypt: ')).strip()
+    list.append(message)
+    return list
 #ask the user whether they want to decrypt or encrypt a message
 #Accept a string that the program will either encrypt or decrypt.
-question=(input'would you like to decrypt or encrypt the message? ')
+question=input('would you like to decrypt or encrypt the message? ')
+message_list=[]
+#either call a function to encrypt or to decrypt the string.
 if question=='encrypt':
-    message= (input'enter the message you want to encrypt: ').strip()
-    message_list=[]
-    message_list.append(message)
+    message_list=add_encrypted(message_list)
     print(encrypt(message_list))
-#Either call a function to encrypt or to decrypt the string.
+elif question=='decrypt':
+    message_list=add_decrypted(message_list)
+    print(decrypt(message_list))
 
 
 
