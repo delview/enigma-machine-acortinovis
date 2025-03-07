@@ -13,7 +13,9 @@ def encrypt(message_list:list):
                     encrypted+=chr(219 - ord(char))#for lowercas letters, 'a'+'z'=219
             else:
                 encrypted+=char
-        return encrypted
+    index_item=message_list.index(item)
+    message_list[index_item]=encrypted
+    return message_list
 #the other will decrypt using the Atbash cipher technique.
 #to decrypt, I will do the same thing because the sum of a and z remains the same, so I can find one character by using its respective one and viceversa
 def decrypt(message_list:list):
@@ -25,6 +27,10 @@ def decrypt(message_list:list):
                     decrypted+=chr(155 - ord(char))#for uppercase letters, 'A'+'Z'=155
                 elif char.islower():
                     decrypted+=chr(219 - ord(char))#for lowercas letters, 'a'+'z'=219
+    index_item=message_list.index(item)
+    message_list[index_item]=decrypted
+    return message_list
+
 
 # This should involve both loops and if statements.
 def add_encrypted(list:list):
@@ -37,9 +43,10 @@ def add_decrypted(list:list):
     list.append(message)
     return list
 
-def print_string(message: list):
-    for item in message:
+def print_string(message_list: list): #function to print the new message
+    for item in message_list:
         print(item)
+
 #ask the user whether they want to decrypt or encrypt a message
 #Accept a string that the program will either encrypt or decrypt.
 message_list_encr=[]
@@ -54,10 +61,9 @@ while True:
             print("here's your message encrypted:")
             print_string(message_list_encr)
             
-            
-            
         elif question=='decrypt':
             message_list_decr=add_decrypted(message_list_decr)
+            message_list_decr.append(decrypt(message_list_decr))
             #Present the final decrypted string to the user.
             print("here's your message decrypted:")
             print_string(message_list_decr)
