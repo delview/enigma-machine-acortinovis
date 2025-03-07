@@ -41,40 +41,41 @@ def add_decrypted(list:list):
     message= (input('enter the message you want to decrypt: ')).strip()
     list.append(message)
     return list
-
-def print_string(message_list: list): #function to print the new message
+#function to print the new message
+def print_string(message_list: list): 
     for item in message_list:
         print(item)
 
 #ask the user whether they want to decrypt or encrypt a message
 #Accept a string that the program will either encrypt or decrypt.
-message_list_encr=[]
-message_list_decr=[]
+
 #either call a function to encrypt or to decrypt the string.
 while True:
-        question=input('would you like to decrypt or encrypt the message? ')
-        if question=='encrypt':
-            message_list_encr=add_encrypted(message_list_encr)
-            message_list_encr=encrypt(message_list_encr)
-            #Present the final encrypted string to the user.
-            print("here's your message encrypted:")
-            print_string(message_list_encr)
-            
-        elif question=='decrypt':
-            message_list_decr=add_decrypted(message_list_decr)
-            message_list_decr.append(decrypt(message_list_decr))
-            #Present the final decrypted string to the user.
-            print("here's your message decrypted:")
-            print_string(message_list_decr)
+    message_list_encr=[]
+    message_list_decr=[]
+    question=input('would you like to decrypt or encrypt the message? ')
+    if question=='encrypt':
+        message_list_encr=add_encrypted(message_list_encr) #to add the string they want to encrypt to the list
+        message_list_encr=encrypt(message_list_encr) #to add to the list the encrypted string intead of the one entered by the user
+        #Present the final encrypted string to the user.
+        print("here's your message encrypted:")
+        print_string(message_list_encr)
+        
+    elif question=='decrypt':
+        message_list_decr=add_decrypted(message_list_decr) #to add the string they want to decrypt to the list
+        message_list_decr=decrypt(message_list_decr) #to add to the list the decrypted strin intead of the one entered by the user
+        #Present the final decrypted string to the user.
+        print("here's your message decrypted:")
+        print_string(message_list_decr)
 
-        else:
-            print('make sure you type either "encrypt" or "decrypt" ')
-            continue
-        #The user must be able to copy that output and run it through the program again to perfectly encrypt or decrypt it multiple times without any mistakes
-        again=input('would you like to encrypt or decrypt further this string?(y/n) ')
-        if again=='y':
-            pass
-        elif again=="n":
-            print('Goodbye!')
-        else:
-            print('make sure your anwer is either "y" or "n" ')
+    else:
+        print('make sure you type either "encrypt" or "decrypt" ')
+        continue
+    #The user must be able to copy that output and run it through the program again to perfectly encrypt or decrypt it multiple times without any mistakes
+    again=input('would you like to encrypt or decrypt further this string?(y/n) ')
+    if again=='y':
+        pass
+    elif again=="n":
+        print('Goodbye!')
+    else:
+        print('make sure your anwer is either "y" or "n" ')
