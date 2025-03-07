@@ -15,7 +15,7 @@ def encrypt(message_list:list):
                 encrypted+=char
     index_item=message_list.index(item)
     message_list[index_item]=encrypted
-    return message_list
+    return message_list #return the list that now contains the encrypted message and not the original message anymore
 #the other will decrypt using the Atbash cipher technique.
 #to decrypt, I will do the same thing because the sum of a and z remains the same, so I can find one character by using its respective one and viceversa
 def decrypt(message_list:list):
@@ -29,12 +29,11 @@ def decrypt(message_list:list):
                     decrypted+=chr(219 - ord(char))#for lowercas letters, 'a'+'z'=219
     index_item=message_list.index(item)
     message_list[index_item]=decrypted
-    return message_list
+    return message_list  #return the list that now contains the decrypted message and not the original message anymore
 
-
-# This should involve both loops and if statements.
+#two functions to add the message the user wants to decrypt/encrypt to the list, which will be used as parameter for the first two functions
 def add_encrypted(list:list):
-    message= (input(f'enter the message you want to encrypt:')).strip()
+    message= (input(f'enter the message you want to encrypt: ')).strip()
     list.append(message)
     return list
 
@@ -71,6 +70,11 @@ while True:
         else:
             print('make sure you type either "encrypt" or "decrypt" ')
             continue
-    
-
-#The user must be able to copy that output and run it through the program again to perfectly encrypt or decrypt it multiple times without any mistakes
+        #The user must be able to copy that output and run it through the program again to perfectly encrypt or decrypt it multiple times without any mistakes
+        again=input('would you like to encrypt or decrypt further this string?(y/n) ')
+        if again=='y':
+            pass
+        elif again=="n":
+            print('Goodbye!')
+        else:
+            print('make sure your anwer is either "y" or "n" ')
